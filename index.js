@@ -1,12 +1,16 @@
+require("dotenv").config();
 const express = require('express');
+const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser')
 // const {express} = require('express');     // express namak function import kro
 const urlRoute = require('./routes/url');   //POORE urlRoute ko import karo
 const userRoute = require('./routes/user')
-const staticRoute = require('./routes/staticRouter')
-require('./connect');
-const PORT = 8000;
+const staticRoute = require('./routes/staticRouter');
+const PORT = process.env.PORT || 8000;
+const url = process.env.MONGO_URL;
+mongoose.connect(url).then(()=>console.log("MongoDB connected")).catch((e)=>console.log("Db error:",e))
+
 const bodyParser = require("body-parser")
 const {CheckForAuth,restrictTo}= require('./middlewares/auth')
 
