@@ -12,6 +12,7 @@
     * {
         font-family: 'Baloo Bhaijaan 2';
         text-align: center;
+        text-decoration: none;
     }
     h4 {
         margin: 0;
@@ -26,6 +27,16 @@
         cursor: pointer;
         background-color: antiquewhite;
     }
+    form > button {
+        position: relative;
+        left: -40px;
+        top: 40px;
+    }
+     a> button {
+        position: relative;
+        top: -46px;
+        left: 58px;
+    }
 </style>
 
 <body>
@@ -37,8 +48,9 @@
         <label>Password</label>
         <input type="password" required name="password">
 
-        <button type="submit">Login</button>
+        <button type="submit">Login!</button>
     </form>
+    <a href="/signup"><button type="submit"> SignUp!</button></a>
 </body>
 
 </html>
