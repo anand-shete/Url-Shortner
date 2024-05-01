@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up </title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap');
+
+    * {
+        font-family: 'Baloo Bhaijaan 2';
+        text-align: center;
+    }
+    h4 {
+        margin: 0;
+        padding: 0;
+    }
+    button {
+        margin: 20px 45%;
+        padding: 10px ;
+        border-radius: 5px;
+    }
+    button:hover {
+        cursor: pointer;
+        background-color: antiquewhite;
+    }
+</style>
+
+<body>
+    <h1>Sign Up Page</h1>
+    <form action="/user" method="POST">
+
+        <label>Full Name:</label>
+        <input type="text" required name="name">
+        <label>Email</label>
+        <input type="email" required name="email">
+        <label>Password</label>
+        <input type="password" required name="password">
+
+        <button type="submit">SignUp</button>
+    </form>
+</body>
+
+</html>

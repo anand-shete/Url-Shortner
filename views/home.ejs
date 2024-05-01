@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Document</title>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+Bhaijaan+2:wght@400..800&display=swap');
+
+    * {
+        font-family: 'Baloo Bhaijaan 2';
+        text-align: center;
+    }
+    h4 {
+        margin: 0;
+        padding: 0;
+    }
+    table {
+        margin: 0 auto;
+    }
+    td {
+        padding: 0 25px;
+    }
+</style>
+
+<body>
+    <h1>HomePage</h1>
+    <h3>Enter your original URL</h3>
+    <form method="POST" action="/url">
+        <label for="url">
+            <input type="text" name="url" placeholder="https://example.com">
+            <button type="submit">Generate</button>
+        </label>
+    </form>
+    <ul>
+        <% if (locals.id) { %>
+
+            <h4>Short ID: <%= id %></h4>
+            <h4>URL Redirects to :<%= url %> </h4>
+            <h2>URL Generated : http://localhost:8000/url/<%= id %></h2>
+            <% } %>
+    </ul>
+    <ul>
+        <% if (locals.urls) { %>
+                <table>
+                    <thead>
+                        <th>Sr #</th>
+                        <th>ShortID</th>
+                        <th>Redirects To</th>
+                        <th>Total Clicks</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                       <% urls.forEach((url,index) => { %>
+                        <td><%= index+1 %></td>
+                        <td><%= url.shortId %></td>
+                        <td><%= url.redirectURL %></td>
+                        <td><%= url.visitHistory.length %></td>
+                    </tr>
+                       <% }) %>
+                    </tbody>
+                </table>
+        <% } %>
+    </ul>
+    <h1>Go To <a href="/admin/urls">ADMIN</a> Page</h1>
+</body>
+
+</html>
